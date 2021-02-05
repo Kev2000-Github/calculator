@@ -1,0 +1,14 @@
+{
+  "name": "challenges",
+  "version": "1.0.0",
+  "description": "a calculator that can accept arithmetic operations and return the respective result",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "kevin cheng",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
