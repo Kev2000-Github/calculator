@@ -1,4 +1,7 @@
-function calculator(mathExpression) {
+//supports arithmetic operations such as adittion, substraction, multiplication and division
+
+
+export function calculator(mathExpression) {
     let expression = mathExpression.replace(/ /g, "");
     expression = optimizeExpression(expression);
     if (!lexicalAnalysis(expression)) return "Lexical Error";
@@ -39,7 +42,7 @@ function syntaxAnalysis(mathExpression) {
     return true;
 }
 
-//I made an exception here for expressions like 5+(-(<any expression>)), - transforms to N
+//I made an exception here for expressions like 5+(-(<any expression>)), - is converted to N
 function toPostFix(mathExpression) {
     const regexMatches = {
         parentheses: /\((.*?)[)]*\)/g,
@@ -122,6 +125,3 @@ function resolvePostFix(mathExpression) {
     }
     return stack.pop();
 }
-
-module.exports = calculator;
-

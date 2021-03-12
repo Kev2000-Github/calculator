@@ -1,14 +1,28 @@
 {
-  "name": "challenges",
+  "name": "calculator-ui",
   "version": "1.0.0",
-  "description": "a calculator that can accept arithmetic operations and return the respective result",
-  "main": "calculator.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack serve --config webpack.dev.js --open"
   },
-  "author": "kevin cheng",
+  "author": "",
   "license": "ISC",
+  "dependencies": {
+    "sass": "^1.32.8"
+  },
   "devDependencies": {
-    "jest": "^26.6.3"
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.1.2",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.3.9",
+    "resolve-url-loader": "^3.1.2",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }

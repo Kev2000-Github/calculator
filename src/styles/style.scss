@@ -1,0 +1,132 @@
+$mainFont: 'Open Sans';
+$bodyBG: gray;
+$screenBG: linear-gradient(180deg, rgba(237,236,236,1) 28%, rgba(200,212,216,1) 84%);
+$fontSize: 20px;
+$numberColor: #575858;
+$numberColorHover: #747575;
+
+*{
+    font-family: $mainFont;
+    user-select: none;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: $bodyBG;
+    width: 100%;
+    height: 100vh;
+    .calculator{
+        background: #c8d4d8;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        max-width: 250px;
+        height: fit-content;
+        border-radius: 2rem;
+        .screenResult{
+            background: $screenBG;
+            text-align: center;
+            border-radius: 2rem 2rem 0 0;
+            width: 100%;
+            overflow: hidden;
+            &::before{
+                content: "";
+                width: 60%;
+                height: 2rem;
+                background: $bodyBG;
+                border-radius: 15px;
+                position: absolute;
+                top: -13px;
+                left: 50%;
+                transform: translateX(-50%);
+                box-sizing: border-box;
+            }
+            .screenContainer{
+                float: right;
+                width: 90%;
+                height: 12rem;
+                overflow: hidden;
+                position: relative;
+                .currentOperation{
+                    font-size: 3rem;
+                    font-weight: bold;
+                    color: $numberColor;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    background: none;
+                    border: none;
+                    width: min-content;
+                    outline: none;
+                    position: absolute;
+                    top: 50%;
+                    right: 2rem;
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0; 
+                        height: 100%;
+                        width: 1rem;
+                    }
+                    &.errorMsg{
+                        font-size: 1.7rem;
+                        padding-top: 20px;
+                    }
+                }
+                .prevOperation{
+                    position: absolute;
+                    top: 4.5rem;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    font-weight: bold;
+                    color: $numberColor;
+                    font-style: italic;
+                }
+            }
+        }
+        .screenButtons{
+            padding: 3rem 1.2rem 5px 1.2rem;
+            box-sizing: border-box;
+            border-radius: 10px 10px 2rem 2rem;
+            background: #f1f5f6;
+            display: grid;
+            grid-auto-flow: row;
+            grid-template-columns: repeat(4, 50px);
+            grid-gap: 5px;
+            .button{
+                outline: none;
+                border-radius: 6px;
+                background-color: transparent;
+                padding: 10px 20px;
+                border: none;
+                font-family: $mainFont;
+                font-size: $fontSize;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #575858;
+                cursor: pointer;
+                transition: 0.3s background-color;
+                animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+                &:hover{
+                    background-color: rgba(165, 165, 165, 0.253);
+                }
+                &.doubleSpace{
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+                    justify-content: flex-start;
+                }
+                &.equalButton{
+                    background: $numberColor;
+                    color: white;
+                    border-radius: 50%;
+                    &:hover{
+                        background: $numberColorHover;
+                    }
+                }
+            }
+        }
+    }
+}
