@@ -7,7 +7,7 @@ module.exports = merge(common, {
     mode: "production",
     output: {
         filename: "[name].[contenthash].js",
-        path: path.join(__dirname, "dist"),
+        path: path.join(__dirname, "docs"),
         publicPath: ''
     },
     module: {
