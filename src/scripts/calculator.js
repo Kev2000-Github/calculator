@@ -19,13 +19,13 @@ function optimizeExpression(mathExpression) {
 }
 
 function lexicalAnalysis(mathExpression) {
-    let checkInvalid = /[^\d\+\-\*\/()( )]/g;
+    let checkInvalid = /[^\d\+\-\*\/()( )\.]/g;
     return !checkInvalid.test(mathExpression);
 }
 
 function syntaxAnalysis(mathExpression) {
     //PRODUCTION RULES
-    const checkUnit = /\d+|^\-\d+|(?<=\()\-\d+/g;
+    const checkUnit = /(\d+(\.\d+)?)|^\-(\d+(\.\d+)?)|(?<=\()\-(\d+(\.\d+)?)/g;
     const checkNegative = /^\-|(?<=\()\-/g;
     const checkOpr = /[\+\-\*\/]/g;
     const checkExpr = /^<negative>(<unit>|<expr>)|(?<=\()<negative>(<unit>|<expr>)|(<(expr|unit)>(<opr><(expr|unit)>)*)|\(<expr>\)/g;

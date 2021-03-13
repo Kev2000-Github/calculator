@@ -114,9 +114,11 @@ body{
                     background-color: rgba(165, 165, 165, 0.253);
                 }
                 &.doubleSpace{
-                    grid-column-start: 1;
-                    grid-column-end: 3;
+                    grid-column: 2 span;
                     justify-content: flex-start;
+                }
+                &.posRight{
+                    justify-content: flex-end;
                 }
                 &.equalButton{
                     background: $numberColor;
